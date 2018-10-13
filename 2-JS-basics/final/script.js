@@ -1,27 +1,26 @@
 /*****************************
 * Variables and data types
 */
-/*
-var firstName = 'John';
-console.log(firstName);
 
-var lastName = 'Smith';
-var age = 28;
 
-var fullAge = true;
-console.log(fullAge);
+console.log('hello, world')
+// var lastName = 'Smith';
+// var age = 28;
 
-var job;
-console.log(job);
+// var fullAge = true;
+// console.log(fullAge);
 
-job = 'Teacher';
-console.log(job);
+// var job;
+// console.log(job);
 
-// Variable naming rules
-var _3years = 3;
-var johnMark = 'John and MArk';
-var if = 23;
-*/
+// job = 'Teacher';
+// console.log(job);
+
+// // Variable naming rules
+// var _3years = 3;
+// var johnMark = 'John and MArk';
+// var if = 23;
+
 
 
 
@@ -133,7 +132,7 @@ Mark and John are trying to compare their BMI (Body Mass Index), which is calcul
 1. Store Mark's and John's mass and height in variables
 2. Calculate both their BMIs
 3. Create a boolean variable containing information about whether Mark has a higher BMI than John.
-4. Print a string to the console containing the variable from step 3. (Something like "Is Mark's BMI higher than John's? true"). 
+4. Print a string to the console containing the variable from step 3. (Something like "Is Mark's BMI higher than John's? true").
 
 GOOD LUCK 😀
 */
@@ -353,13 +352,13 @@ console.log(ageJohn, ageMike, ageJane);
 function yearsUntilRetirement(year, firstName) {
     var age = calculateAge(year);
     var retirement = 65 - age;
-    
+
     if (retirement > 0) {
         console.log(firstName + ' retires in ' + retirement + ' years.');
     } else {
         console.log(firstName + ' is already retired.')
     }
-    
+
 }
 
 yearsUntilRetirement(1990, 'John');
@@ -664,12 +663,12 @@ var john = {
     calcTips: function() {
         this.tips = [];
         this.finalValues = [];
-                
+
         for (var i = 0; i < this.bills.length; i++) {
             // Determine percentage based on tipping rules
             var percentage;
             var bill = this.bills[i];
-            
+
             if (bill < 50) {
                 percentage = .2;
             } else if (bill >= 50 && bill < 200) {
@@ -677,7 +676,7 @@ var john = {
             } else {
                 percentage = .1;
             }
-            
+
             // Add results to the corresponing arrays
             this.tips[i] = bill * percentage;
             this.finalValues[i] = bill + bill * percentage;
@@ -691,12 +690,12 @@ var mark = {
     calcTips: function() {
         this.tips = [];
         this.finalValues = [];
-                
+
         for (var i = 0; i < this.bills.length; i++) {
             // Determine percentage based on tipping rules
             var percentage;
             var bill = this.bills[i];
-            
+
             if (bill < 100) {
                 percentage = .2;
             } else if (bill >= 100 && bill < 300) {
@@ -704,7 +703,7 @@ var mark = {
             } else {
                 percentage = .25;
             }
-            
+
             // Add results to the corresponing arrays
             this.tips[i] = bill * percentage;
             this.finalValues[i] = bill + bill * percentage;
