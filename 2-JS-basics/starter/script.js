@@ -410,3 +410,38 @@
 // 	console.log(john[i]);
 // }
 
+// coding challenge 5
+
+
+var bills =[124, 48, 268, 180, 42];
+var tips = [];
+var finalTotal = [];
+
+for ( i = 0; i < bills.length; i++) {
+	if (bills[i] < 50){
+		var tip =  bills[i] * .2;
+		
+	} else if (bills[i] >= 51 && bills[i] <= 200) {
+		var tip = bills[i] * .15;
+		
+	} else {
+		var tip = bills[i] * .1;
+		
+	}
+	tips.push(tip);
+	finalTotal.push(bills[i] + tips[i]); 
+		
+}
+	console.log(tips);
+	console.log(finalTotal);
+
+var markBills = [77, 375, 110, 45];
+var markTips = [];
+var markFinalTotal = [];
+
+for ( i = 0; i < markBills.length; i++) {
+	if (markBills[i] < 100) {
+
+	} else if  (markBills[i])
+}
+
