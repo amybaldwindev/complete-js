@@ -450,30 +450,24 @@ for ( i = 0; i < markBills.length; i++) {
 	markFinalTotal.push(markBills[i] + markTips[i]);
 }
 // caluclate the average of the tips
-
-// function tipAverage(tipArray) {
-	// while (i = 0; i < markTips.length; i++ ) {
-	// 	var tip = 0 + markTips[i]
-	// 	console.log(tip);
-	// }
-// }
-
-
-
 function tipAverage(tipArray) {
 	var i = 0;
 	var tips = 0
 	while (i < tipArray.length) {
-		// console.log('mark\'s tips: ' + markTips[i]);
 		tips = tips + tipArray[i];
-		
 		i++;
 	}
-	console.log(tips / 4);
+	return (tips / 4);
+	
 }
 
-tipAverage(markTips);
-tipAverage(johnTips);
+if (tipAverage(markTips) > tipAverage(johnTips)) {
+	console.log('mark');
+} else if (tipAverage(johnTips) > tipAverage(markTips) ) {
+	console.log('john');
+} else {
+	console.log('same');
+}
 // console.log(tips);
 // console.log(finalTotal);
 // console.log( 'Mark\'s tips ' + markTips);
