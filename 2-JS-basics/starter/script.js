@@ -413,28 +413,28 @@
 // coding challenge 5
 
 
-var bills =[124, 48, 268, 180, 42];
-var tips = [];
-var finalTotal = [];
+var johnBills =[124, 48, 268, 180, 42];
+var johnTips = [];
+var johnFinalTotal = [];
 var markBills = [77, 375, 110, 45];
 var markTips = [];
 var markFinalTotal = [];
 
 
 // John's tipping calculator
-for ( i = 0; i < bills.length; i++) {
-	if (bills[i] < 50){
-		var tip =  bills[i] * .2;
+for ( i = 0; i < johnBills.length; i++) {
+	if (johnBills[i] < 50){
+		var tip =  johnBills[i] * .2;
 		
-	} else if (bills[i] >= 51 && bills[i] <= 200) {
-		var tip = bills[i] * .15;
+	} else if (johnBills[i] >= 51 && johnBills[i] <= 200) {
+		var tip = johnBills[i] * .15;
 		
 	} else {
-		var tip = bills[i] * .1;
+		var tip = johnBills[i] * .1;
 		
 	}
-	tips.push(tip);
-	finalTotal.push(bills[i] + tips[i]); 
+	johnTips.push(tip);
+	johnFinalTotal.push(johnBills[i] + johnTips[i]); 
 		
 }
 // Mark's tipping calculator
@@ -473,7 +473,7 @@ function tipAverage(tipArray) {
 }
 
 tipAverage(markTips);
-tipAverage(tips);
+tipAverage(johnTips);
 // console.log(tips);
 // console.log(finalTotal);
 // console.log( 'Mark\'s tips ' + markTips);
