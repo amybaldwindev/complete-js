@@ -416,7 +416,12 @@
 var bills =[124, 48, 268, 180, 42];
 var tips = [];
 var finalTotal = [];
+var markBills = [77, 375, 110, 45];
+var markTips = [];
+var markFinalTotal = [];
 
+
+// John's tipping calculator
 for ( i = 0; i < bills.length; i++) {
 	if (bills[i] < 50){
 		var tip =  bills[i] * .2;
@@ -432,16 +437,52 @@ for ( i = 0; i < bills.length; i++) {
 	finalTotal.push(bills[i] + tips[i]); 
 		
 }
-	console.log(tips);
-	console.log(finalTotal);
-
-var markBills = [77, 375, 110, 45];
-var markTips = [];
-var markFinalTotal = [];
-
+// Mark's tipping calculator
 for ( i = 0; i < markBills.length; i++) {
 	if (markBills[i] < 100) {
-
-	} else if  (markBills[i])
+		var tip = markBills[i] *.2
+	} else if  (markBills[i] >= 100 && markBills[i] < 300) {
+		var tip = markBills[i] *.1
+	} else {
+	var tip = markBills[i] *.25
+	}
+	markTips.push(tip);
+	markFinalTotal.push(markBills[i] + markTips[i]);
 }
+// caluclate the average of the tips
+
+// function tipAverage(tipArray) {
+	// while (i = 0; i < markTips.length; i++ ) {
+	// 	var tip = 0 + markTips[i]
+	// 	console.log(tip);
+	// }
+// }
+
+
+
+function tipAverage(tipArray) {
+	var i = 0;
+	var tips = 0
+	while (i < tipArray.length) {
+		// console.log('mark\'s tips: ' + markTips[i]);
+		tips = tips + tipArray[i];
+		
+		i++;
+	}
+	console.log(tips / 4);
+}
+
+tipAverage(markTips);
+tipAverage(tips);
+// console.log(tips);
+// console.log(finalTotal);
+// console.log( 'Mark\'s tips ' + markTips);
+// console.log(tipAverage(markTips));
+
+// console.log( 'Mark\'s final total: ' + markFinalTotal);
+
+
+
+
+
 
