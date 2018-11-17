@@ -8,3 +8,54 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
+
+// Goals
+// How to create fundamental game variables
+// How to generate a random number
+// how to manipulate the DOM
+// how to read from the DOM
+// How to change CSS styles
+
+
+// create vars
+var scores, roundScore, activePlayer;
+
+scores = [0, 0];
+roundScore = 0;
+activePlayer = 1;
+
+// set dice to random value between 1 && 6; 
+
+// console.log(dice);
+
+// DOM manipulation
+// document.querySelector('#current-' + activePlayer).textContent = dice;
+
+
+// hide initial dice
+document.querySelector('.dice').style.display = 'none';
+
+// set all values to 0
+document.getElementById('score-0').textContent = 0;
+document.getElementById('score-1').textContent = 0;
+document.getElementById('current-0').textContent = 0;
+document.getElementById('current-1').textContent = 0;
+
+// Add a click event for a dice roll
+document.querySelector('.btn-roll').addEventListener('click', function() {
+	// 1. Random Number
+	var dice = Math.floor(Math.random() * 6) + 1;
+	// 2. Display result
+	var diceDOM = document.querySelector('.dice')
+	diceDOM.style.display = 'block';
+	diceDOM.src = 'dice-' + dice + '.png';
+
+	document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
+	
+
+
+	// 3. Update Round Score if rolled number  was not a 1
+
+	//
+
+});
