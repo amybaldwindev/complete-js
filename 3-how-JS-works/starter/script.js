@@ -3,31 +3,31 @@
 // calculateAge(1995);
 
 // hoisting only works for function decairation
-function calculateAge(year) {
-    console.log(2018 - year)
-}
+// function calculateAge(year) {
+//     console.log(2018 - year)
+// }
 
- // not function expressions as below
-// retirement(1990);
+//  // not function expressions as below
+// // retirement(1990);
 
-var retirement = function (year) {
-    console.log(65 - (2018 - year));
-}
+// var retirement = function (year) {
+//     console.log(65 - (2018 - year));
+// }
 
-// variables that don't have a value yet will always be undefinde
-console.log(age);
-var age = 23;
+// // variables that don't have a value yet will always be undefinde
+// console.log(age);
+// var age = 23;
 
 
-function foo() {
-    var age = 65;
-    console.log(age);
-}
-foo();
-console.log(age);
+// function foo() {
+//     var age = 65;
+//     console.log(age);
+// }
+// foo();
+// console.log(age);
 
 // use case for hoisting is that we can use function declairations before they
-// are used in the code
+// are used in the code 
 
 
 
@@ -85,10 +85,34 @@ function third() {
 // Lecture: The this keyword
 
 
+function calculateAge(year) {
+    console.log(2018 - year);
+    console.log(this);
+}
 
 
+var john = {
+    year: 'John',
+    yearOfBirth: 1990,
+    calculateAge: function() {
+        console.log(2018 - this.yearOfBirth);
 
+        // function innerFunction() {
+        //     console.log(this);
+        // }
 
+        // innerFunction();
+    }
+}
 
+john.calculateAge();
 
+var mike = {
+    name: 'Mike',
+    yearOfBirth: 1984,
+
+}   
+// method borrowing
+mike.calculateAge = john.calculateAge;
+mike.calculateAge()
 
