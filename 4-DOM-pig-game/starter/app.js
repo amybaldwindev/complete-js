@@ -20,9 +20,8 @@ GAME RULES:
 // create vars
 var scores, roundScore, activePlayer;
 
-scores = [0, 0];
-roundScore = 0;
-activePlayer = 0;
+init();
+
 
 // set dice to random value between 1 && 6; 
 
@@ -32,14 +31,6 @@ activePlayer = 0;
 // document.querySelector('#current-' + activePlayer).textContent = dice;
 
 
-// hide initial dice
-document.querySelector('.dice').style.display = 'none';
-
-// set all values to 0
-document.getElementById('score-0').textContent = 0;
-document.getElementById('score-1').textContent = 0;
-document.getElementById('current-0').textContent = 0;
-document.getElementById('current-1').textContent = 0;
 
 // Add a click event for a dice roll
 document.querySelector('.btn-roll').addEventListener('click', function() {
@@ -76,11 +67,11 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 	if (scores[activePlayer] >= 20){
 		// Add player wins classes
 		document.querySelector('#name-' + activePlayer).textContent = 'winner';
-		document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+		// document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
 		document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
 		document.querySelector('.dice').style.display = 'none';
-		document.querySelector('.btn-roll').style.display = 'none';
-		document.querySelector('.btn-hold').style.display = 'none';
+		// document.querySelector('.btn-roll').style.display = 'none';
+		// document.querySelector('.btn-hold').style.display = 'none';
 	} else {
 		// next player
 		nextPlayer();
@@ -98,7 +89,32 @@ function nextPlayer() {
 			document.querySelector('.player-0-panel').classList.toggle('active');
 			document.querySelector('.player-1-panel').classList.toggle('active');
 
-			// document.querySelector('.player-0-panel').classList.remove('active');
-			// document.querySelector('.player-1-panel').classList.add('active');
 			document.querySelector('.dice').style.display= 'none';
+}
+// start a new game 
+document.querySelector('.btn-new').addEventListener('click', init);
+
+
+function init() {
+	scores = [0, 0];
+	roundScore = 0;
+	activePlayer = 0;
+
+	// hide initial dice
+	document.querySelector('.dice').style.display = 'none';
+
+	// set all values to 0
+	document.getElementById('score-0').textContent = 0;
+	document.getElementById('score-1').textContent = 0;
+	document.getElementById('current-0').textContent = 0;
+	document.getElementById('current-1').textContent = 0;
+	// // reset player names
+	document.getElementById('name-0').textContent = 'Player 1';
+	document.getElementById('name-1').textContent = 'Player 2';
+	// // remove winner class
+	document.querySelector('.player-0-panel').classList.remove('winner');
+	document.querySelector('.player-1-panel').classList.remove('winner');
+	document.querySelector('.player-0-panel').classList.remove('active');
+	document.querySelector('.player-1-panel').classList.remove('active');
+	document.querySelector('.player-0-panel').classList.add('active');
 }
