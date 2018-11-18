@@ -18,7 +18,7 @@ GAME RULES:
 
 
 // create vars
-var scores, roundScore, activePlayer;
+var scores, roundScore, activePlayer, gamePlaying;
 
 init();
 
@@ -34,7 +34,9 @@ init();
 
 // Add a click event for a dice roll
 document.querySelector('.btn-roll').addEventListener('click', function() {
-	// 1. Random Number
+	
+	if(gamePlaying) {
+		// 1. Random Number
 	var dice = Math.floor(Math.random() * 6) + 1;
 	// 2. Display result
 	var diceDOM = document.querySelector('.dice')
@@ -52,31 +54,34 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 			nextPlayer();
 
 		}
-	//
+	}
 
 });
 
 document.querySelector('.btn-hold').addEventListener('click', function() {
-	// add current score to players global score
-	scores[activePlayer] += roundScore;
+	if(gamePlaying) {
+		// add current score to players global score
+		scores[activePlayer] += roundScore;
 
-	// Update UI 
-	document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+		// Update UI 
+		document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
-	// Check if player has won the game
-	if (scores[activePlayer] >= 20){
-		// Add player wins classes
-		document.querySelector('#name-' + activePlayer).textContent = 'winner';
-		// document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-		document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-		document.querySelector('.dice').style.display = 'none';
-		// document.querySelector('.btn-roll').style.display = 'none';
-		// document.querySelector('.btn-hold').style.display = 'none';
-	} else {
-		// next player
-		nextPlayer();
+		// Check if player has won the game
+		if (scores[activePlayer] >= 20){
+			gamePlaying = false;
+			// Add player wins classes
+			document.querySelector('#name-' + activePlayer).textContent = 'winner';
+			// document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+			document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+			document.querySelector('.dice').style.display = 'none';
+			// document.querySelector('.btn-roll').style.display = 'none';
+			// document.querySelector('.btn-hold').style.display = 'none';
+		} else {
+			// next player
+			nextPlayer();
+		}
+
 	}
-
 });
 
 function nextPlayer() {
@@ -99,6 +104,7 @@ function init() {
 	scores = [0, 0];
 	roundScore = 0;
 	activePlayer = 0;
+	gamePlaying = true;
 
 	// hide initial dice
 	document.querySelector('.dice').style.display = 'none';
