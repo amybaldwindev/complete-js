@@ -18,7 +18,7 @@ GAME RULES:
 
 
 // create vars
-var scores, roundScore, activePlayer, gamePlaying;
+var scores, roundScore, activePlayer, gamePlaying, winScore;
 
 init();
 
@@ -39,8 +39,6 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 		// 1. Random Number
 	var dice = Math.floor(Math.random() * 6) + 1;
 	var dice1 = Math.floor(Math.random() * 6) + 1;
-
-	console.log(dice, dice1);
 	// 2. Display result
 	var diceDOM = document.querySelector('.dice')
 	var diceDOM1 = document.querySelector('.dice1')
@@ -73,14 +71,14 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 		document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
 		// Check if player has won the game
-		if (scores[activePlayer] >= 20){
+		if (scores[activePlayer] >= winScore){
 			gamePlaying = false;
 			// Add player wins classes
 			document.querySelector('#name-' + activePlayer).textContent = 'winner';
 			// document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
 			document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
 			document.querySelector('.dice').style.display = 'none';
-			document.querySelector('.dice .dice1').style.display = 'none';
+			document.querySelector('.dice1').style.display = 'none';
 			// document.querySelector('.btn-roll').style.display = 'none';
 			// document.querySelector('.btn-hold').style.display = 'none';
 		} else {
@@ -113,9 +111,11 @@ function init() {
 	roundScore = 0;
 	activePlayer = 0;
 	gamePlaying = true;
+	winScore = 100;
 
 	// hide initial dice
 	document.querySelector('.dice').style.display = 'none';
+	document.querySelector('.dice1').style.display = 'none';
 
 	// set all values to 0
 	document.getElementById('score-0').textContent = 0;
@@ -131,4 +131,14 @@ function init() {
 	document.querySelector('.player-0-panel').classList.remove('active');
 	document.querySelector('.player-1-panel').classList.remove('active');
 	document.querySelector('.player-0-panel').classList.add('active');
+
+	// Update winning score if user submits from
+	// if userScore is added
+	// user input  = user score
+	// else 
+	// userScore = 100
+}
+
+function updateWinScore() {
+	winScore = document.getElementById('winningScore').value;
 }
