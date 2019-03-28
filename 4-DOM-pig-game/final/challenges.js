@@ -35,7 +35,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
             nextPlayer();
         }
         
-        /*
+        
         if (dice === 6 && lastDice === 6) {
             //Player looses score
             scores[activePlayer] = 0;
@@ -50,7 +50,7 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
             nextPlayer();
         }
         lastDice = dice;
-        */
+        
     }    
 });
 
