@@ -52,10 +52,17 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 
 		// Update the UI
 		document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
+		var input =document.querySelector('.winning-score').value;
 
+		if(input) {
+			var winningScore = input;
+		} else {
+			winningScore = 100;
+		}
 
 		// Check if the player won the game.
-		if (scores[activePlayer] >= 20) {
+
+		if (scores[activePlayer] >= winningScore) {
 
 			document.getElementById('name-'+activePlayer).textContent = 'winner';
 			document.querySelector('.player-' + activePlayer +'-panel').classList.remove('active');
