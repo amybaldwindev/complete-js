@@ -16,26 +16,33 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 	if(gamePlaying) {
 		// 1. random number
 		var dice = Math.floor(Math.random() * 6) + 1;
+		var dice1= Math.floor(Math.random() * 6) + 1;
+		
 		// 2. display result
-		var diceDOM =document.querySelector('.dice')
+		document.getElementById('dice-0').src = 'dice-'+ dice +'.png';
+		document.getElementById('dice-1').src = 'dice-'+ dice1 +'.png';
+		// var dice1DOM =document.querySelector('.dice1')
 
-		diceDOM.style.display = 'block';
-		diceDOM.src = 'dice-' + dice + '.png';
+		document.getElementById('dice-0').style.display = 'block';
+		document.getElementById('dice-1').style.display = 'block';
+	
 
-		if (prevRoll === 6  && dice === 6) {
+		/*if (prevRoll === 6  && dice === 6) {
 			scores[activePlayer] = 0;
 			document.getElementById('score-'+activePlayer).textContent = 0;
 			roundScore = 0;
 			document.getElementById('current-'+activePlayer).textContent = 0;
 			prevRoll = 0;
 			nextPlayer();
+		
+		} else */
 
-		} else if (dice !== 1) {
+		if (dice !== 1 && dice1 !== 1) {
 			//  add score
-			roundScore += dice;
+			roundScore += dice +dice1;
 			document.querySelector('#current-' + activePlayer).textContent =  roundScore;
 			prevRoll = dice;
-			console.log(prevRoll);
+			
 		} else {
 			//  next player
 			// if activePlayer is 0 then activePlayer is else activePlayer is 0;
@@ -85,7 +92,8 @@ function nextPlayer() {
 
 	document.querySelector('.player-0-panel').classList.toggle('active');
 	document.querySelector('.player-1-panel').classList.toggle('active');
-	document.querySelector('.dice').style.display = 'none';
+	document.getElementById('dice-0').style.display = 'none';
+	document.getElementById('dice-1').style.display = 'none';
 }
 
 function init() {
@@ -95,7 +103,8 @@ function init() {
 	prevRoll = 0;
 	gamePlaying = true;
 
-	document.querySelector('.dice').style.display = 'none';
+	document.getElementById('dice-0').style.display = 'none';
+	document.getElementById('dice-1').style.display = 'none';
 
 	document.getElementById('score-0').textContent = '0';
 	document.getElementById('score-1').textContent = '0';
