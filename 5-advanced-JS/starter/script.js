@@ -129,3 +129,31 @@ var maxBPM = arrayCalc(ages, maxHeartRate);
 console.log(ages);
 console.log(fullAges);
 console.log(maxBPM);
+
+
+function interviewQuestion(job) {
+	if (job === 'designer') {
+		return function(name) {
+			console.log(name + ' , can you please explain what UX design is?');
+		}
+	} else if (job === 'teacher') {
+		return function(name) {
+			console.log(name +', which subject do you teach?');
+		}
+	} else {
+		return function(name) {
+			console.log('Hello ' + name + ', what do you do?');
+		}
+	}
+}
+
+var teacherQuestion = interviewQuestion('teacher');
+var designerQuestion = interviewQuestion('designer');
+var engineerQuestion = interviewQuestion('engineer');
+
+teacherQuestion('John');
+designerQuestion('John');
+engineerQuestion('John');
+
+
+interviewQuestion('teacher')('Mark');
