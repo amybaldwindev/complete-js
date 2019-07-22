@@ -301,14 +301,31 @@ var Question = function(question, correctAnswer) {
 	this.correctAnswer = correctAnswer;
 }
 
-var question1 = new Question('Are Java and JavaScript the same?', 1);
+var question1 = new Question('Are Java and JavaScript the same?', '1');
+var question2 = new Question('Does 3 + 4 = 9', '0');
+var question3 = new Question('Does Amy want a tesla?', '0');
 
 if (random === 0) {
 	answer = prompt(question1.question);
+	if (answer === question1.correctAnswer) {
+		console.log('Yes, that\'s right.')
+	} else {
+		console.log('Better luck next time.')
+	}
 } else if (random === 1) {
-	answer = prompt('question2');
+	answer = prompt(question2.question);
+	if (answer === question2.correctAnswer) {
+		console.log('Yes, that\'s right.')
+	} else {
+		console.log('Better luck next time.')
+	}
 } else if (random === 2) {
-	answer = prompt('question3');
+	answer = prompt(question3.question);
+	if (answer === question3.correctAnswer) {
+		console.log('Yes, that\'s right.')
+	} else {
+		console.log('Better luck next time.')
+	}
 } else {
 	console.log('Oops! Something went wrong');
 }
