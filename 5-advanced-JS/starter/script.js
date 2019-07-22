@@ -222,3 +222,107 @@ mark.calculateAge();
 // interviewQuestion('designer')('Marc');
 // interviewQuestion('engineer')('Mary');
 
+
+/*
+--- Let's build a fun quiz game in the console! ---
+
+1. Build a function constructor called Question to describe a question. A question should include:
+a) question itself
+b) the answers from which the player can choose the correct one (choose an adequate data structure here, array, object, etc.)
+c) correct answer (I would use a number for this)
+
+2. Create a couple of questions using the constructor
+
+3. Store them all inside an array
+
+4. Select one random question and log it on the console, together with the possible answers (each question should have a number) (Hint: write a method for the Question objects for this task).
+
+5. Use the 'prompt' function to ask the user for the correct answer. The user should input the number of the correct answer such as you displayed it on Task 4.
+
+6. Check if the answer is correct and print to the console whether the answer is correct ot nor (Hint: write another method for this).
+
+7. Suppose this code would be a plugin for other programmers to use in their code. So make sure that all your code is private and doesn't interfere with the other programmers code (Hint: we learned a special technique to do exactly that).
+*/
+
+
+
+// let Question = function(question, correctAnswer) {
+// 	this.question = question;
+// 	this.correctAnswer = correctAnswer;
+// }
+
+// var question1 = new Question('Are Java & JavaScript the same?', '1');
+// 
+// let answer = prompt();
+// console.log(answer);
+
+
+
+// function Question(question, possibleAnswers, correctAnswer) {
+// 	this.question = question;
+// 	let answer = prompt(question);
+// 	console.log(possibleAnswers);
+// 	if(answer === correctAnswer) {
+// 		console.log('that\'s right')
+// 	} else {
+// 		console.log('try again')
+// 	}
+// }
+
+
+
+// var Question = function(question, possibleAnswers, correctAnswer) {
+// 	this.question = question,
+// 	this.possibleAnswers =possibleAnswers
+// 	this.correctAnswer = correctAnswer
+// }
+
+// Question.prototype.
+
+// var question1 = ('Are Java and JavaScript the same?', '0: Yes, 1: No', '1');
+
+
+//  Create three y/n questions and set their answers
+// 'Are Java and JavaScript the same?', 1;
+// 'Does 3 + 4 = 9', 0
+// 'Does Amy want a tesla?', 0
+
+
+// Select each question randomly
+let random = Math.round(Math.random() * 3);
+console.log('random question number: ' + random);
+//  print possible answers to console 
+console.log('0: Yes, 1: No');
+// Choose question
+var answer;
+
+var Question = function(question, correctAnswer) {
+	this.question = question;
+	this.correctAnswer = correctAnswer;
+}
+
+var question1 = new Question('Are Java and JavaScript the same?', 1);
+
+if (random === 0) {
+	answer = prompt(question1.question);
+} else if (random === 1) {
+	answer = prompt('question2');
+} else if (random === 2) {
+	answer = prompt('question3');
+} else {
+	console.log('Oops! Something went wrong');
+}
+
+console.log(answer);
+
+// assign correct answer and user answer,
+// log the result to the console (if /else)
+// console.log('that\'s right');
+// console.log('better luck next time');
+
+
+
+// assign user input to a var
+
+//  use the var to check the correct answer
+
